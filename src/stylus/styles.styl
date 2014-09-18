@@ -67,6 +67,9 @@ body
                 display block
                 margin 0 auto 5px
                 font normal 5rem Glyphs
+            &.loaded
+                &:before
+                    content ""
     #tasks
         h3
             border-top 1px solid #ccc
@@ -199,9 +202,7 @@ body
                                     color #555
                                 label
                                     margin 0 0 7px 20px
-
                 &.open
-
                     form
                         display block
                 &:last-child

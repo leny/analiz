@@ -1,6 +1,6 @@
 {
   "name": "analiz",
-  "version": "0.0.1-2",
+  "version": "0.0.1-23",
   "description": "TODO",
   "main": "index.html",
   "window": {
@@ -37,6 +37,8 @@
     }
   ],
   "dependencies": {
-    "os-name": "^0.1.2"
+    "os-name": "^0.1.2",
+    "grunt-html-validation": "^0.1.18",
+    "grunt-htmlhint": "^0.4.1"
   }
 }
