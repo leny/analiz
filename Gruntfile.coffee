@@ -171,6 +171,7 @@ module.exports = ( grunt ) ->
   ]
 
   grunt.registerTask "work", [
+    "check"
     "watch"
   ]
 
