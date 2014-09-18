@@ -69,12 +69,12 @@ module.exports = ( grunt ) ->
           level: "error"
       src:
         files:
-          src: [ "src/coffee/*.coffee" ]
+          src: [ "src/coffee/**/*.coffee" ]
     coffee:
       src:
         expand: yes
         cwd: "src/coffee"
-        src: [ "*.coffee" ]
+        src: [ "**/*.coffee" ]
         dest: "bin/js"
         ext: ".js"
         options:
