@@ -1,0 +1,32 @@
+// imports
+@import "kouto-swiss"
+
+// resets
+meyer-reset()
+box-sizing-reset()
+
+// fonts
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-Regular", formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-RegularItalic", normal, italic, formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-Bold", bold, formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-BoldItalic", bold, italic, formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-Light", lighter, formats: eot woff )
+font-face( "FiraSans", "../assets/fonts/firasans/FiraSans-LightItalic", lighter, italic, formats: eot woff )
+FiraSans = "FiraSans", font-stack( "Helvetica" )
+font-face( "FiraMono", "../assets/fonts/FiraMono/FiraMono-Regular", formats: eot woff )
+font-face( "FiraMono", "../assets/fonts/FiraMono/FiraMono-Bold", bold, formats: eot woff )
+FiraMono = "FiraMono", font-stack( "Consolas" )
+font-face( "WebHostingHub", "../assets/fonts/webhostinghub/webhostinghub-glyphs-webfont", formats: eot ttf svg )
+Glyphs = "WebHostingHub"
+
+*
+    -webkit-font-smoothing antialiased
+
+html
+    font normal 62.5% FiraSans
+    color black
+
+body
+    position relative
+    clear fix
+    background #dadada

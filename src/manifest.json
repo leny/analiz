@@ -1,0 +1,42 @@
+{
+  "name": "analiz",
+  "version": "0.0.1-2",
+  "description": "TODO",
+  "main": "index.html",
+  "window": {
+    "title": "analiz",
+    "icon": "assets/icons/icon.png",
+    "toolbar": false,
+    "frame": true,
+    "width": 800,
+    "height": 600,
+    "resizable": false
+  },
+  "webkit": {
+    "plugin": false
+  },
+  "mainteners": [
+    {
+      "name": "leny",
+      "email": "info@flatland.be",
+      "web": "http://leny.me"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/leny/analiz.git",
+    "path": "builds/releases/analiz"
+  },
+  "bugs": {
+    "url": "https://github.com/leny/analiz/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/leny/analiz/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "os-name": "^0.1.2"
+  }
+}

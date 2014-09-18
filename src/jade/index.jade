@@ -1,0 +1,26 @@
+doctype html
+html( lang="en_US" )
+    head
+        meta( charset="UTF-8" )/
+        title analiz
+
+        link( rel="stylesheet", href="css/styles.css" )/
+
+    body
+        div.left
+            div#files
+                input( type="file", name="files", accept="text/html" )/
+                a( href="#" ) Select html files
+
+            div#tasks
+                h3 Tasks
+
+        div.right
+            h3
+                | Results
+                = " "
+                span ()
+            div#results
+
+        script( src="js/vendors/jquery.js" )
+        script( src="js/main.js" )
