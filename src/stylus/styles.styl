@@ -23,10 +23,203 @@ Glyphs = "WebHostingHub"
     -webkit-font-smoothing antialiased
 
 html
+    height 100%
     font normal 62.5% FiraSans
     color black
 
 body
     position relative
+    height 100%
     clear fix
-    background #dadada
+    background white
+
+.left
+    width 240px
+    height 100%
+    float left
+    border-right 1px solid #ccc
+    background #eee
+    h3
+        height 24px
+        margin 0 auto 5px
+        padding 1px 0 0 10px
+        background #ddd
+        border-bottom 1px solid #ccc
+        font bold 1.2rem/24px FiraSans
+        color #444
+        text-transform uppercase
+    #files
+        position relative
+        width auto
+        height 110px
+        input
+            position absolute
+            left -9999px
+        a
+            display block
+            margin 0 auto
+            font normal 1.1rem FiraSans
+            color #666
+            text-align center
+            text-decoration none
+            &:before
+                content ""
+                display block
+                margin 0 auto 5px
+                font normal 5rem Glyphs
+    #tasks
+        h3
+            border-top 1px solid #ccc
+        ol
+            height 411px
+            overflow auto
+            &:empty
+                text-align center
+                &:before
+                    content "please, select a file to begin"
+                    font normal 1.1rem/466px FiraSans
+                    color #888
+            &.loading
+                &:before
+                    content "loading tasks..."
+                    display inline-block
+                    margin 200px auto 0
+                    padding 40px 0 0
+                    background transparent url( "../assets/img/spinner.svg" ) center top no-repeat
+                    background-size 30px auto
+                    font normal 1.1rem FiraSans
+            > li
+                margin 0 10px 6px
+                padding 2px 0 0
+                > span
+                    display block
+                    padding 0 0 6px
+                    border-bottom 1px solid #aaa
+                    a.select
+                        font normal 1.2rem/1.6rem FiraSans
+                        color #444
+                        text-decoration none
+                        &:before
+                            content ""
+                            margin 0 5px 0 0
+                            font normal 1.4rem Glyphs
+                            vertical-align -.3rem
+                    a.config
+                        float right
+                        font normal 1.4rem Glyphs
+                        color #444
+                        text-decoration none
+                        &:before
+                            content ""
+                    &.selected
+                        a.select:before
+                            content ""
+                form
+                    display none
+                    padding 10px
+                    fieldset
+                        margin 0 auto 10px
+                        legend
+                            display block
+                            width 100%
+                            margin 0 auto 8px
+                            font bold 1.2rem FiraSans
+                            color #444
+                            text-align left
+                        .form-elt
+                            margin 0 auto 5px
+                            label
+                                display block
+                                position relative
+                                margin 0 auto 7px
+                                input
+                                    position absolute
+                                    left -5000px
+                                span
+                                    font normal 1.1rem FiraSans
+                                    color #555
+                                    cursor pointer
+                                    &:before
+                                        content ""
+                                        margin 0 5px 0 0
+                                        font normal 1.4rem Glyphs
+                                        vertical-align -.3rem
+                                input[type="checkbox"] + span:before
+                                    content ""
+                                input[type="checkbox"]:checked + span:before
+                                    content ""
+                                input[type="radio"] + span:before
+                                    content ""
+                                input[type="radio"]:checked + span:before
+                                    content ""
+                                p
+                                    display none
+                                    position absolute
+                                    width 90%
+                                    left 50%
+                                    top 22px
+                                    margin 0 0 0 -45%
+                                    padding 5px
+                                    z-index 1000
+                                    background white
+                                    border-radius 4px
+                                    border 1px solid #999
+                                    font normal 1.0rem/1.2 FiraSans
+                                    color #666
+                                    &:before
+                                        content ""
+                                        display block
+                                        position absolute
+                                        width 0
+                                        height 0
+                                        top -20px
+                                        left 50%
+                                        margin 0 0 0 -10px
+                                        border 10px solid transparent
+                                        border-bottom 10px solid #888
+                                    &:after
+                                        content ""
+                                        display block
+                                        position absolute
+                                        width 0
+                                        height 0
+                                        top -19px
+                                        left 50%
+                                        margin 0 0 0 -10px
+                                        border 10px solid transparent
+                                        border-bottom 10px solid white
+                                &:hover
+                                    p
+                                        display block
+                            &.multiple
+                                strong
+                                    display block
+                                    margin 0 0 4px
+                                    font bold 1.1rem FiraSans
+                                    color #555
+                                label
+                                    margin 0 0 7px 20px
+
+                &.open
+
+                    form
+                        display block
+                &:last-child
+                    span
+                        border-bottom 0
+    div.actions
+        height 50px
+        padding 8px 0 0
+        background #ddd
+        border-top 1px solid #ccc
+        a
+            display block
+            width 90%
+            margin 0 auto
+            background-image linear-gradient( to bottom, white, #f0f0f0 )
+            border 1px solid #ccc
+            border-radius 4px
+            font normal 1.4rem/2 FiraSans
+            color #666
+            text-decoration none
+            text-align center
