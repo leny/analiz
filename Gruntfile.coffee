@@ -100,7 +100,8 @@ module.exports = ( grunt ) ->
     nodewebkit:
       options:
         build_dir: "builds"
-        app_name: "mikwoskop-htmlhint"
+        appName: "analiz"
+        appVersion: grunt.file.readJSON( "src/manifest.json" ).version
         mac: yes
         mac_icns: "bin/assets/icons/icon.icns"
         credits: "bin/about.html"
@@ -114,37 +115,37 @@ module.exports = ( grunt ) ->
         mode: "zip"
       mac:
         options:
-          archive: "releases/mac/mikwoskop-htmlhint.zip"
+          archive: "releases/mac/analiz.zip"
         files: [
           expand: yes
-          cwd: "builds/releases/mikwoskop-htmlhint/mac/"
+          cwd: "builds/releases/analiz/mac/"
           src: [ "**" ]
           dest: "/"
         ]
       win:
         options:
-          archive: "releases/win/mikwoskop-htmlhint.zip"
+          archive: "releases/win/analiz.zip"
         files: [
           expand: yes
-          cwd: "builds/releases/mikwoskop-htmlhint/win/"
+          cwd: "builds/releases/analiz/win/"
           src: [ "**" ]
           dest: "/"
         ]
       linux32:
         options:
-          archive: "releases/linux32/mikwoskop-htmlhint.zip"
+          archive: "releases/linux32/analiz.zip"
         files: [
           expand: yes
-          cwd: "builds/releases/mikwoskop-htmlhint/linux32/"
+          cwd: "builds/releases/analiz/linux32/"
           src: [ "**" ]
           dest: "/"
         ]
       linux64:
         options:
-          archive: "releases/linux64/mikwoskop-htmlhint.zip"
+          archive: "releases/linux64/analiz.zip"
         files: [
           expand: yes
-          cwd: "builds/releases/mikwoskop-htmlhint/linux64/"
+          cwd: "builds/releases/analiz/linux64/"
           src: [ "**" ]
           dest: "/"
         ]
