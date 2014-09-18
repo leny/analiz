@@ -8,7 +8,6 @@ module.exports = ( grunt ) ->
     bumpup: "src/manifest.json"
     clean:
       bin: [ "bin" ]
-      build: [ "builds/releases" ]
       releases: [ "releases" ]
     copy:
       manifest:
@@ -78,7 +77,7 @@ module.exports = ( grunt ) ->
         dest: "bin/js"
         ext: ".js"
         options:
-          bare: yes
+          bare: no
     stylus:
       options:
         compress: no
@@ -200,5 +199,4 @@ module.exports = ( grunt ) ->
     "nodewebkit"
     "compress"
     "clean:bin"
-    "clean:build"
   ]

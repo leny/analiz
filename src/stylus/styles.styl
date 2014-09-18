@@ -114,9 +114,6 @@ body
                         text-decoration none
                         &:before
                             content ""
-                    &.selected
-                        a.select:before
-                            content ""
                 form
                     display none
                     padding 10px
@@ -205,6 +202,9 @@ body
                 &.open
                     form
                         display block
+                &.selected
+                    > span a.select:before
+                        content ""
                 &:last-child
                     span
                         border-bottom 0

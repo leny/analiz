@@ -36,6 +36,7 @@ loadTasks = ( aGivenTasks ) ->
         oTask = require "./js/tasks/#{ sTask }.js"
         aTasks.push oTask
         $task = $ "<li><span><a href=\"#\" class=\"select\">#{ oTask.infos.name }</a></span></li>"
+            .attr "id", sTask
         $ "#tasks ol"
             .append $task
         if oTask.infos.config and oTask.config
@@ -100,7 +101,7 @@ loadTasks = ( aGivenTasks ) ->
 selectTask = ( e ) ->
     e.preventDefault()
     $ this
-        .parent()
+        .parents "li"
         .toggleClass "selected"
 
 toggleConfig = ( e ) ->
@@ -108,6 +109,13 @@ toggleConfig = ( e ) ->
     $ this
         .parents "li"
         .toggleClass "open"
+
+runTasks = ( e ) ->
+    e.preventDefault()
+    return unless ( $tasks = $( "#tasks li.selected" ) ).size()
+    $tasks.each ->
+        sID = $( this ).attr "id"
+        console.log "run task #{ sID }"
 
 $ ->
     $ "body"
@@ -120,5 +128,8 @@ $ ->
 
     $ "#files input"
         .on "change", filesSelected
+
+    $ "#tasks .actions a"
+        .on "click", runTasks
 
     require( "nw.gui" ).Window.get().showDevTools()
