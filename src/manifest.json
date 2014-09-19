@@ -1,7 +1,7 @@
 {
   "name": "analiz",
   "version": "0.0.1-89",
-  "description": "TODO",
+  "description": "A small app to analyze your HTML & CSS files",
   "main": "index.html",
   "window": {
     "title": "analiz",
