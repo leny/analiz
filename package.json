@@ -1,8 +1,8 @@
 {
   "name": "analiz",
   "version": "0.0.1",
-  "description": "TODO",
-  "keywords": [],
+  "description": "A small app to analyze your HTML & CSS files",
+  "private": true,
   "homepage": "https://github.com/leny/analiz",
   "author": {
     "name": "leny",

@@ -1,19 +1,17 @@
 # Analiz
 
-[![NPM version](http://img.shields.io/npm/v/analiz.svg)](https://www.npmjs.org/package/analiz) 
-![Dependency Status](https://david-dm.org/leny/analiz.svg)
-
-> Description coming soon.
+> A small app to analyze your HTML & CSS files
 
 * * *
-
-**Note:** Analiz is in early states of development.
 
 ## Getting Started
 
 ### Download Binaries
 
-_(Coming soon)_
+* **linux (32bits):** [download](https://github.com/leny/analiz/raw/master/releases/linux32/analiz.zip)
+* **linux (64bits):** [download](https://github.com/leny/analiz/raw/master/releases/linux64/analiz.zip)
+* **mac:** [download](https://github.com/leny/analiz/raw/master/releases/mac/analiz.zip)
+* **windows:** [download](https://github.com/leny/analiz/raw/master/releases/win/analiz.zip)
 
 ### Build the app from the sources
 
@@ -30,8 +28,15 @@ _(Coming soon)_
 
 ### TODO
 
+* [ ] CSS Analyze
+    * [ ] parker
+    * [ ] colorguard
+    * [ ] stylestats
+    * [ ] csslint
+
 ## Release History
 
+* **2014/09/20:** v0.0.1 - first alpha release
 * **2014/09/18:** starting project
 
 ## License
