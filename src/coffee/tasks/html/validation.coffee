@@ -30,10 +30,10 @@ exports.run = ( oFile, fNext ) ->
                 for oMessage in oResponse.messages
                     ( $message = $ "<li />" )
                         .addClass "message"
-                        .addClass oMessage.type or oMessage.subtype
+                        .addClass oMessage.subtype or oMessage.type
                         .appendTo $list
                     $ "<strong />"
-                        .text oMessage.type or oMessage.subtype
+                        .text oMessage.subtype or oMessage.type
                         .appendTo $message
                     $ "<em />"
                         .addClass "line"

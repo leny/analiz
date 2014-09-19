@@ -285,18 +285,19 @@ body
                                     min-height 50px
                                     padding 0 0 0 50px
                                     border-left 1px solid #ccc
+                                    border-top 1px solid #ccc
                                     strong
                                         display inline-block
                                         width 50%
-                                        background #eef
-                                        font bold 1.2rem FiraSans
+                                        padding 0 0 0 5px
+                                        font bold 1.2rem/24px FiraSans
                                         color #999
+                                        text-transform uppercase
                                     em
                                         display inline-block
                                         width 50%
                                         padding 0 5px 0 0
-                                        background-image linear-gradient( to right, #eef, white )
-                                        font bold 1.2rem FiraSans
+                                        font normal 1.2rem/24px FiraSans
                                         color #999
                                         text-align right
                                         &:before
@@ -306,25 +307,38 @@ body
                                         background #fff
                                         padding 5px
                                         border-top 1px solid #ccc
-                                        font normal 1.2rem FiraSans
+                                        border-left 1px solid #ccc
+                                        font normal 1.2rem/1.25 FiraSans
                                         color #999
                                     &:before
                                         content ""
                                         display block
                                         absolute 0 false 0 0
                                         size 50px false
-                                        background #eef
                                         font normal 4rem Glyphs
-                                        color rgba( white, .5 )
+                                        color rgba( blue, .5 )
                                         text-align center
                                     &:after
                                         content counter(messages)
                                         display block
                                         absolute 0 false 0 0
                                         size 50px false
-                                        font bold 4.5rem FiraSans
+                                        font bold 2rem/50px FiraSans
                                         color rgba( white, 1 )
+                                        text-shadow 0 0 5px rgba( black, .33 )
                                         text-align center
+                                    &.error
+                                        &:before
+                                            content ""
+                                            color rgba( red, .5 )
+                                        strong
+                                            color red
+                                    &.warning
+                                        &:before
+                                            content ""
+                                            color rgba( orange, .5 )
+                                        strong
+                                            color orange
                         &:last-child
                             border-bottom 0
                 &:before

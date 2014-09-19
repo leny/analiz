@@ -127,6 +127,12 @@ fRunTasks = ( e ) ->
     ( $link = $ "<a />" )
         .attr "href", "#"
         .appendTo $report
+        .on "click", ( e ) ->
+            e.preventDefault()
+            $( this )
+                .parent()
+                    .toggleClass "open"
+                    .toggleClass "closed"
     $ "<strong />"
         .text oFile.path
         .appendTo $link
