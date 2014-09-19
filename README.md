@@ -2,6 +2,8 @@
 
 > A small app to analyze your HTML & CSS files
 
+**Note:** currently analyze only your HTML files.
+
 * * *
 
 ## Getting Started
