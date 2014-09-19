@@ -1,4 +1,5 @@
 # WARNING: this is quick'n'dirty code. You've been warned.
+# TODO: Refactor, organize, make it cleaner.
 
 "use strict"
 
@@ -6,13 +7,14 @@ pkg = require "./package.json"
 
 sOSName = require( "os-name" )().toLowerCase().split( " " ).join ""
 
-fs = require "fs"
-path = require "path"
+$ = require "jquery"
 
 oFile = null
-aTasks = []
+oTasks = {}
+bTaskRunning = no
+iTasksToRun = 0
 
-filesSelected = ( e ) ->
+fFilesSelected = ( e ) ->
     return unless oFile = e.originalEvent.target.files[ 0 ]
     $ "#tasks ol"
         .empty()
@@ -28,13 +30,12 @@ filesSelected = ( e ) ->
             ]
         else
             console.log "no tasks for that kind of files."
-    loadTasks aTasksToLoad if aTasksToLoad.length
+    fLoadTasks aTasksToLoad if aTasksToLoad.length
 
-loadTasks = ( aGivenTasks ) ->
-    aTasks = []
+fLoadTasks = ( aGivenTasks ) ->
+    oTasks = {}
     for sTask in aGivenTasks
-        oTask = require "./js/tasks/#{ sTask }.js"
-        aTasks.push oTask
+        oTasks[ sTask ] = ( oTask = require "./js/tasks/#{ sTask }.js" )
         $task = $ "<li><span><a href=\"#\" class=\"select\">#{ oTask.infos.name }</a></span></li>"
             .attr "id", sTask
         $ "#tasks ol"
@@ -93,29 +94,67 @@ loadTasks = ( aGivenTasks ) ->
     $ "#tasks ol"
         .toggleClass "loading", no
         .find "li a.select"
-            .on "click", selectTask
+            .on "click", fSelectTask
             .end()
         .find "li a.config"
-            .on "click", toggleConfig
+            .on "click", fToggleConfig
 
-selectTask = ( e ) ->
+fSelectTask = ( e ) ->
     e.preventDefault()
     $ this
         .parents "li"
         .toggleClass "selected"
 
-toggleConfig = ( e ) ->
+fToggleConfig = ( e ) ->
     e.preventDefault()
     $ this
         .parents "li"
         .toggleClass "open"
 
-runTasks = ( e ) ->
+fRunTasks = ( e ) ->
     e.preventDefault()
-    return unless ( $tasks = $( "#tasks li.selected" ) ).size()
+    return if bTaskRunning
+    return unless iTasksToRun = ( $tasks = $( "#tasks li.selected" ) ).size()
+    ( $reports = $ "div.right > ol" )
+        .find "li"
+            .removeClass "open"
+            .addClass "closed"
+    $reports.addClass "loading"
+    bTaskRunning = yes
+    ( $report = $ "<li />" )
+        .addClass "open"
+        .appendTo $reports
+    ( $link = $ "<a />" )
+        .attr "href", "#"
+        .appendTo $report
+    $ "<strong />"
+        .text oFile.path
+        .appendTo $link
+    $ "<em />"
+        .text "#{ iTasksToRun } task" + ( if iTasksToRun > 1 then "s" else "" )
+        .appendTo $link
+    ( dDate = new Date() )
+    sHours = if ( iHours = dDate.getHours() ) < 10 then "0#{ iHours }" else iHours
+    sMinutes = if ( iMinutes = dDate.getMinutes() ) < 10 then "0#{ iMinutes }" else iMinutes
+    sSeconds = if ( iSeconds = dDate.getSeconds() ) < 10 then "0#{ iSeconds }" else iSeconds
+    $ "<span />"
+        .text "#{ sHours }:#{ sMinutes }:#{ sSeconds }"
+        .appendTo $link
+    $ "<ol />"
+        .appendTo $report
     $tasks.each ->
         sID = $( this ).attr "id"
-        console.log "run task #{ sID }"
+        oTasks[ sID ].run oFile, fDisplayResults
+
+fDisplayResults = ( $results ) ->
+    ( $report = $ "div.right > ol" )
+        .children "li"
+            .last()
+                .find "ol"
+                    .append $results
+    if --iTasksToRun is 0
+        bTaskRunning = no
+        $report.removeClass "loading"
 
 $ ->
     $ "body"
@@ -127,9 +166,9 @@ $ ->
             $( "#files input" ).trigger "click"
 
     $ "#files input"
-        .on "change", filesSelected
+        .on "change", fFilesSelected
 
     $ "#tasks .actions a"
-        .on "click", runTasks
+        .on "click", fRunTasks
 
     require( "nw.gui" ).Window.get().showDevTools()
