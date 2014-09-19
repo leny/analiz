@@ -35,6 +35,7 @@ _(Coming soon)_
     * [ ] colorguard
     * [ ] stylestats
     * [ ] csslint
+* [ ] Multiple file analysis.
 
 ## Release History
 
