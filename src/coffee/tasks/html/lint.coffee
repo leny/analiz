@@ -1,8 +1,12 @@
-# build on top of grunt-htmlhint
+# build on top of htmlhint
 
 "use strict"
 
-exports.infos =
+htmlhint = require( "htmlhint" ).HTMLHint
+fs = require "fs"
+$ = require "jquery"
+
+exports.infos = oInfos =
     name: "HTML Hint"
     config: yes
 
@@ -93,7 +97,45 @@ exports.config =
             value: 1
             description: "Style tag can not be use."
 
+exports.run = ( oFile, aConfig, fNext ) ->
+    oRules = {}
+    for oConfig in aConfig
+        oRules[ oConfig.name ] = if ( mValue = oConfig.value ) in [ "1", "0" ] then !!mValue else mValue
+    fs.readFile oFile.path, { encoding: "utf-8" }, ( oError, sRawHTML ) ->
+        # TODO : error managment
+        aResults = htmlhint.verify sRawHTML, oRules
+        $report = $ "<li />"
+        $ "<strong />"
+            .text oInfos.name
+            .appendTo $report
+        ( $container = $ "<div />" )
+            .addClass "result"
+            .appendTo $report
+        if aResults.length
+            ( $counter = $ "<span />" )
+                .text "#{ aResults.length } message" + ( if aResults.length > 1 then "s" else "" )
+                .appendTo $container
+            ( $list = $ "<ol />" )
+                .appendTo $container
+            for oMessage in aResults
+                ( $message = $ "<li />" )
+                    .addClass "message"
+                    .addClass oMessage.subtype or oMessage.type
+                    .appendTo $list
+                $ "<strong />"
+                    .text oMessage.subtype or oMessage.type
+                    .appendTo $message
+                $ "<em />"
+                    .addClass "line"
+                    .text oMessage.line
+                    .appendTo $message
+                $ "<span />"
+                    .text oMessage.message
+                    .appendTo $message
+        else
+            $ "<span />"
+                .addClass "no-message"
+                .text "no error"
+                .appendTo $container
+        fNext $report
 
-
-exports.run = ( grunt ) ->
-    console.log "run html hint"

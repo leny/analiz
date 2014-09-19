@@ -150,13 +150,17 @@ fRunTasks = ( e ) ->
         .appendTo $report
     $tasks.each ->
         sID = $( this ).attr "id"
-        oTasks[ sID ].run oFile, fDisplayResults
+        if ( $config = $( this ).find( "form" ) ).size()
+            aConfig = $config.serializeArray()
+            oTasks[ sID ].run oFile, aConfig, fDisplayResults
+        else
+            oTasks[ sID ].run oFile, fDisplayResults
 
 fDisplayResults = ( $results ) ->
     ( $report = $ "div.right > ol" )
         .children "li"
             .last()
-                .find "ol"
+                .children "ol"
                     .append $results
     if --iTasksToRun is 0
         bTaskRunning = no
@@ -177,4 +181,4 @@ $ ->
     $ "#tasks .actions a"
         .on "click", fRunTasks
 
-    require( "nw.gui" ).Window.get().showDevTools()
+    # require( "nw.gui" ).Window.get().showDevTools() # show console
