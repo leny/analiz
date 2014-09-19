@@ -117,36 +117,32 @@ module.exports = ( grunt ) ->
           archive: "releases/mac/analiz.zip"
         files: [
           expand: yes
-          cwd: "builds/releases/analiz/mac/"
-          src: [ "**" ]
-          dest: "/"
+          cwd: "builds/analiz/osx/"
+          src: [ "**/*" ]
         ]
       win:
         options:
           archive: "releases/win/analiz.zip"
         files: [
           expand: yes
-          cwd: "builds/releases/analiz/win/"
-          src: [ "**" ]
-          dest: "/"
+          cwd: "builds/analiz/win/"
+          src: [ "**/*" ]
         ]
       linux32:
         options:
           archive: "releases/linux32/analiz.zip"
         files: [
           expand: yes
-          cwd: "builds/releases/analiz/linux32/"
-          src: [ "**" ]
-          dest: "/"
+          cwd: "builds/analiz/linux32/"
+          src: [ "**/*" ]
         ]
       linux64:
         options:
           archive: "releases/linux64/analiz.zip"
         files: [
           expand: yes
-          cwd: "builds/releases/analiz/linux64/"
-          src: [ "**" ]
-          dest: "/"
+          cwd: "builds/analiz/linux64/"
+          src: [ "**/*" ]
         ]
     watch:
       jade:
