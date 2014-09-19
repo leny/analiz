@@ -278,21 +278,22 @@ body
                                 color #555
                                 text-align center
                             ol
-                                counter-reset messages
                                 > li
-                                    counter-increment messages
                                     position relative
                                     min-height 50px
-                                    padding 0 0 0 50px
-                                    border-left 1px solid #ccc
                                     border-top 1px solid #ccc
                                     strong
                                         display inline-block
                                         width 50%
                                         padding 0 0 0 5px
-                                        font bold 1.2rem/24px FiraSans
-                                        color #999
+                                        font bold 1.3rem/24px FiraSans
+                                        color #77B5FE
                                         text-transform uppercase
+                                        &:before
+                                            content ""
+                                            margin 0 5px 0 0
+                                            font normal 1.6rem Glyphs
+                                            vertical-align -.35rem
                                     em
                                         display inline-block
                                         width 50%
@@ -306,39 +307,19 @@ body
                                         display block
                                         background #fff
                                         padding 5px
-                                        border-top 1px solid #ccc
-                                        border-left 1px solid #ccc
+                                        border-top 1px solid #eee
                                         font normal 1.2rem/1.25 FiraSans
                                         color #999
-                                    &:before
-                                        content ""
-                                        display block
-                                        absolute 0 false 0 0
-                                        size 50px false
-                                        font normal 4rem Glyphs
-                                        color rgba( blue, .5 )
-                                        text-align center
-                                    &:after
-                                        content counter(messages)
-                                        display block
-                                        absolute 0 false 0 0
-                                        size 50px false
-                                        font bold 2rem/50px FiraSans
-                                        color rgba( white, 1 )
-                                        text-shadow 0 0 5px rgba( black, .33 )
-                                        text-align center
                                     &.error
-                                        &:before
-                                            content ""
-                                            color rgba( red, .5 )
                                         strong
                                             color red
+                                            &:before
+                                                content ""
                                     &.warning
-                                        &:before
-                                            content ""
-                                            color rgba( orange, .5 )
                                         strong
                                             color orange
+                                            &:before
+                                                content ""
                         &:last-child
                             border-bottom 0
                 &:before
