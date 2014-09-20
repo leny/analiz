@@ -30,11 +30,16 @@ _(Coming soon)_
 
 ### TODO
 
+* [ ] Complete refactor, make new plugins easier to code
+* [ ] HTML Analyze
+    * [ ] [microdata](https://www.npmjs.org/package/microdata)
+    * [ ] wcag validator
 * [ ] CSS Analyze
     * [ ] parker
     * [ ] colorguard
     * [ ] stylestats
     * [ ] csslint
+* [ ] Error management
 * [ ] Multiple file analysis.
 
 ## Release History
